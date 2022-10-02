@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'add_question' => 'اضافة سؤال جديد',
+    'Question_name' => 'اسم السؤال',
+    'Quizzes' => "اسم الاختبار",
+    'the_answers' => 'الاجابات',
+    'The_correct_answer' => 'الاجابة الصحيحة',
+    'Select_test' => 'حدد اسم الاختبار',
+    'Select_degree' => 'حدد الدرجة',
+    'delete_question' => 'حذف سؤال',
+    'Edit_question' => 'تعديل سؤال',
+    'list_questions' => 'قائمة الاسئلة',
+    'Add_test' => 'اضافة اختبار جديد',
+    'name_test_Arabic' => 'اسم الاختبار باللغة العربية',
+    'name_test_English' => 'اسم الاختبار باللغة الانجليزية',
+    'Subject' => 'المادة الدراسية',
+    'Select_course' => 'حدد المادة الدراسية',
+    'Select_teacher' => 'حدد اسم المعلم',
+    'test_adjustment' => 'تعديل اختبار',
+    'List_tests' => 'قائمة الاختبارات',
+    'delete_test' => 'حذف اختبار',
+    'Entry_test_score' => 'دخول // درجة الاختبار',
+    'make_test' => 'إجراء اختبار',
+    'mark' => 'يجب فصل بعلامه ( - ) بين الاجابات',
+    'tested_students' => 'قائمة الطلاب المختبره',
+    'date_test' => 'تاريخ اجراء الاختبار',
+    'manipulate' => 'تلاعب',
+    'Last_question' => 'اخر سؤال',
+    'No_manipulation' => 'لا يوجد تلاعب',
+    'There_tamper' => 'لا يوجد تلاعب',
+    'repetition' => 'إعادة',
+    're-examination' => 'فتح إعادة الاختبار للطالب',
+
+
+];
