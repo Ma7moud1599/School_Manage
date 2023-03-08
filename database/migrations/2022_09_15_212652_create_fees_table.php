@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -17,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->decimal('amount', 8, 2);
-            $table->bigInteger('Grade_id')->unsigned();
-            $table->bigInteger('Classroom_id')->unsigned();
+            $table->bigInteger('grade_id')->unsigned();
+            $table->bigInteger('classroom_id')->unsigned();
             $table->string('description')->nullable();
             $table->string('year');
             $table->integer('Fee_type');

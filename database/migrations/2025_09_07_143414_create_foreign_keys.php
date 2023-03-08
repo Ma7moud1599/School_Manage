@@ -9,17 +9,17 @@ class CreateForeignKeys extends Migration
     public function up()
     {
         Schema::table('classrooms', function (Blueprint $table) {
-            $table->foreign('Grade_id')->references('id')->on('grades')
+            $table->foreign('grade_id')->references('id')->on('grades')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('sections', function (Blueprint $table) {
-            $table->foreign('Grade_id')->references('id')->on('grades')
+            $table->foreign('grade_id')->references('id')->on('grades')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('sections', function (Blueprint $table) {
-            $table->foreign('Class_id')->references('id')->on('classrooms')
+            $table->foreign('class_id')->references('id')->on('classrooms')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
 
@@ -53,31 +53,31 @@ class CreateForeignKeys extends Migration
             $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('nationalitie_id')->references('id')->on('nationalities')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('blood_id')->references('id')->on('type__bloods')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('parent_id')->references('id')->on('my__parents')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('promotions', function (Blueprint $table) {
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('from_grade')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('from_Classroom')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('from_grade')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('from_Classroom')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('from_section')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('to_grade')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('to_Classroom')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('to_grade')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('to_Classroom')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('to_section')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('fees', function (Blueprint $table) {
-            $table->foreign('Grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('fee_invoices', function (Blueprint $table) {
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('fee_id')->references('id')->on('fees')->onDelete('cascade')->onUpdate('cascade');
         });
 
@@ -108,21 +108,21 @@ class CreateForeignKeys extends Migration
 
         Schema::table('attendances', function (Blueprint $table) {
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('subjects', function (Blueprint $table) {
-            $table->foreign('grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('quizzes', function (Blueprint $table) {
-            $table->foreign('grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
@@ -133,15 +133,15 @@ class CreateForeignKeys extends Migration
         });
 
         Schema::table('online_classes', function (Blueprint $table) {
-            $table->foreign('Grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('library', function (Blueprint $table) {
-            $table->foreign('Grade_id')->references('id')->on('Grades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
@@ -156,13 +156,13 @@ class CreateForeignKeys extends Migration
     public function down()
     {
         Schema::table('classrooms', function (Blueprint $table) {
-            $table->dropForeign('classrooms_Grade_id_foreign');
+            $table->dropForeign('classrooms_grade_id_foreign');
         });
         Schema::table('sections', function (Blueprint $table) {
-            $table->dropForeign('sections_Grade_id_foreign');
+            $table->dropForeign('sections_grade_id_foreign');
         });
         Schema::table('sections', function (Blueprint $table) {
-            $table->dropForeign('sections_Class_id_foreign');
+            $table->dropForeign('sections_class_id_foreign');
         });
     }
 }

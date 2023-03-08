@@ -7,14 +7,12 @@ use App\Models\Quizze;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class ExamsController extends Controller
 {
-
     public function index()
     {
-        $quizzes = Quizze::where('grade_id', auth()->user()->Grade_id)
-            ->where('classroom_id', auth()->user()->Classroom_id)
+        $quizzes = Quizze::where('grade_id', auth()->user()->grade_id)
+            ->where('classroom_id', auth()->user()->classroom_id)
             ->where('section_id', auth()->user()->section_id)
             ->orderBy('id', 'DESC')
             ->get();

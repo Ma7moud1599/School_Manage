@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 
 class QuizzController extends Controller
 {
-
-
     public function index()
     {
         $quizzes = Quizze::where('teacher_id', auth()->user()->id)->get();
@@ -36,8 +34,8 @@ class QuizzController extends Controller
             $quizzes = new Quizze();
             $quizzes->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $quizzes->subject_id = $request->subject_id;
-            $quizzes->grade_id = $request->Grade_id;
-            $quizzes->classroom_id = $request->Classroom_id;
+            $quizzes->grade_id = $request->grade_id;
+            $quizzes->classroom_id = $request->classroom_id;
             $quizzes->section_id = $request->section_id;
             $quizzes->teacher_id = auth()->user()->id;
             $quizzes->save();
@@ -71,8 +69,8 @@ class QuizzController extends Controller
             $quizz = Quizze::findorFail($request->id);
             $quizz->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $quizz->subject_id = $request->subject_id;
-            $quizz->grade_id = $request->Grade_id;
-            $quizz->classroom_id = $request->Classroom_id;
+            $quizz->grade_id = $request->grade_id;
+            $quizz->classroom_id = $request->classroom_id;
             $quizz->section_id = $request->section_id;
             $quizz->teacher_id = auth()->user()->id;
             $quizz->save();

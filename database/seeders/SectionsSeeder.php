@@ -9,8 +9,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
-class SectionsSeeder extends Seeder
+class sectionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,18 +20,18 @@ class SectionsSeeder extends Seeder
     {
         DB::table('sections')->delete();
 
-        $Sections = [
+        $sections = [
             ['en' => 'a', 'ar' => 'ا'],
             ['en' => 'b', 'ar' => 'ب'],
             ['en' => 'c', 'ar' => 'ت'],
         ];
 
-        foreach ($Sections as $section) {
+        foreach ($sections as $section) {
             Section::create([
                 'Name_section' => $section,
                 'Status' => 1,
-                'Grade_id' => Grade::all()->unique()->random()->id,
-                'Class_id' => ClassRoom::all()->unique()->random()->id
+                'grade_id' => Grade::all()->unique()->random()->id,
+                'class_id' => ClassRoom::all()->unique()->random()->id
             ]);
         }
     }

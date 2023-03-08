@@ -12,7 +12,6 @@ Route::group(
 Route::group(
     ['namespace' => 'App\Http\Controllers\Auth'],
     function () {
-
         Route::get('/login/{type}', 'LoginController@loginForm')->middleware('guest')->name('login.show');
 
         Route::post('/login', 'LoginController@login')->name('login');
@@ -28,22 +27,21 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth'],
     ],
     function () {
-
         Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
         });
 
-        Route::group(['namespace' => 'App\Http\Controllers\Grades'], function () {
-            Route::resource('Grades', GradeController::class);
+        Route::group(['namespace' => 'App\Http\Controllers\grades'], function () {
+            Route::resource('grades', GradeController::class);
         });
 
-        Route::group(['namespace' => 'App\Http\Controllers\Classrooms'], function () {
+        Route::group(['namespace' => 'App\Http\Controllers\classrooms'], function () {
             Route::resource('Classes', ClassroomController::class);
             Route::post('Filter_Classes', 'ClassroomController@Filter_Classes')->name('Filter_Classes');
             Route::post('delete_all', 'ClassroomController@delete_all')->name('delete_all');
         });
-        Route::group(['namespace' => 'App\Http\Controllers\Sections'], function () {
-            Route::resource('Sections', SectionController::class);
+        Route::group(['namespace' => 'App\Http\Controllers\sections'], function () {
+            Route::resource('sections', SectionController::class);
             Route::get('/classes/{id}', 'SectionController@getclasses');
         });
 
@@ -87,5 +85,4 @@ Route::group(
             Route::resource('settings', SettingController::class);
         });
     }
-
 );

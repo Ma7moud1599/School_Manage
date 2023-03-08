@@ -3,6 +3,7 @@
 @section('title')
 {{trans('main_trans.Dashboard')}}
 @stop
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,9 +24,9 @@
         <!--=================================
  preloader -->
 
- <div id="pre-loader">
-     <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
- </div>
+        <div id="pre-loader">
+            <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
+        </div>
 
         <!--=================================
  preloader -->
@@ -38,10 +39,11 @@
  Main content -->
         <!-- main-content -->
         <div class="content-wrapper">
-            <div class="page-title" >
+            <div class="page-title">
                 <div class="row">
-                    <div class="col-sm-6" >
-                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{trans('auth.admin_control_panel')}}</h4>
+                    <div class="col-sm-6">
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{trans('auth.admin_control_panel')}}
+                        </h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
@@ -50,7 +52,7 @@
                 </div>
             </div>
             <!-- widgets -->
-            <div class="row" >
+            <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -66,7 +68,9 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Students.index')}}"><span class="text-danger">{{trans('auth.Display_data')}}</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a
+                                    href="{{route('Students.index')}}"><span
+                                        class="text-danger">{{trans('auth.Display_data')}}</span></a>
                             </p>
                         </div>
                     </div>
@@ -86,7 +90,9 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Teachers.index')}}"><span class="text-danger">{{trans('auth.Display_data')}}</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a
+                                    href="{{route('Teachers.index')}}"><span
+                                        class="text-danger">{{trans('auth.Display_data')}}</span></a>
                             </p>
                         </div>
                     </div>
@@ -106,7 +112,9 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('add_parent')}}"><span class="text-danger">{{trans('auth.Display_data')}}</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a
+                                    href="{{route('add_parent')}}"><span
+                                        class="text-danger">{{trans('auth.Display_data')}}</span></a>
                             </p>
                         </div>
                     </div>
@@ -126,7 +134,9 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Sections.index')}}"><span class="text-danger">{{trans('auth.Display_data')}}</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a
+                                    href="{{route('sections.index')}}"><span
+                                        class="text-danger">{{trans('auth.Display_data')}}</span></a>
                             </p>
                         </div>
                     </div>
@@ -137,38 +147,42 @@
 
             <div class="row">
 
-                <div  style="height: 400px;" class="col-xl-12 mb-30">
+                <div style="height: 400px;" class="col-xl-12 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="tab nav-border" style="position: relative;">
                                 <div class="d-block d-md-flex justify-content-between">
                                     <div class="d-block w-100">
-                                        <h5 style="font-family: 'Cairo', sans-serif" class="card-title">{{trans('auth.last_operations')}}</h5>
+                                        <h5 style="font-family: 'Cairo', sans-serif" class="card-title">
+                                            {{trans('auth.last_operations')}}</h5>
                                     </div>
                                     <div class="d-block d-md-flex nav-tabs-custom">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                                             <li class="nav-item">
                                                 <a class="nav-link active show" id="students-tab" data-toggle="tab"
-                                                   href="#students" role="tab" aria-controls="students"
-                                                   aria-selected="true"> {{trans('main_trans.students')}}</a>
+                                                    href="#students" role="tab" aria-controls="students"
+                                                    aria-selected="true"> {{trans('main_trans.students')}}</a>
                                             </li>
 
                                             <li class="nav-item">
                                                 <a class="nav-link" id="teachers-tab" data-toggle="tab" href="#teachers"
-                                                   role="tab" aria-controls="teachers" aria-selected="false">{{trans('main_trans.Teachers')}}
+                                                    role="tab" aria-controls="teachers"
+                                                    aria-selected="false">{{trans('main_trans.Teachers')}}
                                                 </a>
                                             </li>
 
                                             <li class="nav-item">
                                                 <a class="nav-link" id="parents-tab" data-toggle="tab" href="#parents"
-                                                   role="tab" aria-controls="parents" aria-selected="false">{{trans('main_trans.Parents')}}
+                                                    role="tab" aria-controls="parents"
+                                                    aria-selected="false">{{trans('main_trans.Parents')}}
                                                 </a>
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class="nav-link" id="fee_invoices-tab" data-toggle="tab" href="#fee_invoices"
-                                                   role="tab" aria-controls="fee_invoices" aria-selected="false"> {{trans('Fees.Invoices')}}
+                                                <a class="nav-link" id="fee_invoices-tab" data-toggle="tab"
+                                                    href="#fee_invoices" role="tab" aria-controls="fee_invoices"
+                                                    aria-selected="false"> {{trans('Fees.Invoices')}}
                                                 </a>
                                             </li>
 
@@ -178,23 +192,25 @@
                                 <div class="tab-content" id="myTabContent">
 
                                     {{--students Table--}}
-                                    <div class="tab-pane fade active show" id="students" role="tabpanel" aria-labelledby="students-tab">
+                                    <div class="tab-pane fade active show" id="students" role="tabpanel"
+                                        aria-labelledby="students-tab">
                                         <div class="table-responsive mt-15">
-                                            <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                            <table style="text-align: center"
+                                                class="table center-aligned-table table-hover mb-0">
                                                 <thead>
-                                                <tr  class="table-info text-danger">
-                                                    <th>#</th>
-                                                    <th>{{trans('Students_trans.name')}}</th>
-                                                    <th>{{trans('Students_trans.email')}}</th>
-                                                    <th>{{trans('Students_trans.gender')}}</th>
-                                                    <th>{{trans('Students_trans.Grade')}}</th>
-                                                    <th>{{trans('Students_trans.classrooms')}}</th>
-                                                    <th>{{trans('Students_trans.section')}}</th>
-                                                    <th>{{trans('Attendance.Date')}}</th>
-                                                </tr>
+                                                    <tr class="table-info text-danger">
+                                                        <th>#</th>
+                                                        <th>{{trans('Students_trans.name')}}</th>
+                                                        <th>{{trans('Students_trans.email')}}</th>
+                                                        <th>{{trans('Students_trans.gender')}}</th>
+                                                        <th>{{trans('Students_trans.Grade')}}</th>
+                                                        <th>{{trans('Students_trans.classrooms')}}</th>
+                                                        <th>{{trans('Students_trans.section')}}</th>
+                                                        <th>{{trans('Attendance.Date')}}</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse(\App\Models\Student::latest()->take(5)->get() as $student)
+                                                    @forelse(\App\Models\Student::latest()->take(5)->get() as $student)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$student->name}}</td>
@@ -205,31 +221,34 @@
                                                         <td>{{$student->section->Name_section}}</td>
                                                         <td class="text-success">{{$student->created_at}}</td>
                                                         @empty
-                                                            <td class="alert-danger" colspan="8">{{trans('Students_trans.no_data')}}</td>
+                                                        <td class="alert-danger" colspan="8">
+                                                            {{trans('Students_trans.no_data')}}</td>
                                                     </tr>
-                                                @endforelse
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
 
                                     {{--teachers Table--}}
-                                    <div class="tab-pane fade" id="teachers" role="tabpanel" aria-labelledby="teachers-tab">
+                                    <div class="tab-pane fade" id="teachers" role="tabpanel"
+                                        aria-labelledby="teachers-tab">
                                         <div class="table-responsive mt-15">
-                                            <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                            <table style="text-align: center"
+                                                class="table center-aligned-table table-hover mb-0">
                                                 <thead>
-                                                <tr  class="table-info text-danger">
-                                                    <th>#</th>
-                                                    <th>{{trans('Teacher_trans.Name_Teacher')}}</th>
-                                                    <th>{{trans('Teacher_trans.Gender')}}</th>
-                                                    <th>{{trans('Teacher_trans.Joining_Date')}}</th>
-                                                    <th>{{trans('Teacher_trans.specialization')}}</th>
-                                                    <th>{{trans('Attendance.Date')}}</th>
-                                                </tr>
+                                                    <tr class="table-info text-danger">
+                                                        <th>#</th>
+                                                        <th>{{trans('Teacher_trans.Name_Teacher')}}</th>
+                                                        <th>{{trans('Teacher_trans.Gender')}}</th>
+                                                        <th>{{trans('Teacher_trans.Joining_Date')}}</th>
+                                                        <th>{{trans('Teacher_trans.specialization')}}</th>
+                                                        <th>{{trans('Attendance.Date')}}</th>
+                                                    </tr>
                                                 </thead>
 
                                                 @forelse(\App\Models\Teacher::latest()->take(5)->get() as $teacher)
-                                                    <tbody>
+                                                <tbody>
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$teacher->Name}}</td>
@@ -238,30 +257,33 @@
                                                         <td>{{$teacher->specializations->Name}}</td>
                                                         <td class="text-success">{{$teacher->created_at}}</td>
                                                         @empty
-                                                            <td class="alert-danger" colspan="8">{{trans('Students_trans.no_data')}}</td>
+                                                        <td class="alert-danger" colspan="8">
+                                                            {{trans('Students_trans.no_data')}}</td>
                                                     </tr>
-                                                    </tbody>
+                                                </tbody>
                                                 @endforelse
                                             </table>
                                         </div>
                                     </div>
 
                                     {{--parents Table--}}
-                                    <div class="tab-pane fade" id="parents" role="tabpanel" aria-labelledby="parents-tab">
+                                    <div class="tab-pane fade" id="parents" role="tabpanel"
+                                        aria-labelledby="parents-tab">
                                         <div class="table-responsive mt-15">
-                                            <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                            <table style="text-align: center"
+                                                class="table center-aligned-table table-hover mb-0">
                                                 <thead>
-                                                <tr  class="table-info text-danger">
-                                                    <th>#</th>
-                                                    <th>{{trans('Parent_trans.Parent\'s_name')}}</th>
-                                                    <th>{{trans('Parent_trans.Email')}}</th>
-                                                    <th>{{trans('Parent_trans.National_ID_Father')}}</th>
-                                                    <th>{{trans('Parent_trans.Phone_Father')}}</th>
-                                                    <th>{{trans('Attendance.Date')}}</th>
-                                                </tr>
+                                                    <tr class="table-info text-danger">
+                                                        <th>#</th>
+                                                        <th>{{trans('Parent_trans.Parent\'s_name')}}</th>
+                                                        <th>{{trans('Parent_trans.Email')}}</th>
+                                                        <th>{{trans('Parent_trans.National_ID_Father')}}</th>
+                                                        <th>{{trans('Parent_trans.Phone_Father')}}</th>
+                                                        <th>{{trans('Attendance.Date')}}</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse(\App\Models\My_Parent::latest()->take(5)->get() as $parent)
+                                                    @forelse(\App\Models\My_Parent::latest()->take(5)->get() as $parent)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$parent->Name_Father}}</td>
@@ -270,32 +292,36 @@
                                                         <td>{{$parent->Phone_Father}}</td>
                                                         <td class="text-success">{{$parent->created_at}}</td>
                                                         @empty
-                                                            <td class="alert-danger" colspan="8">{{trans('Students_trans.no_data')}}</td>
+                                                        <td class="alert-danger" colspan="8">
+                                                            {{trans('Students_trans.no_data')}}</td>
                                                     </tr>
-                                                @endforelse
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
 
                                     {{--sections Table--}}
-                                    <div class="tab-pane fade" id="fee_invoices" role="tabpanel" aria-labelledby="fee_invoices-tab">
+                                    <div class="tab-pane fade" id="fee_invoices" role="tabpanel"
+                                        aria-labelledby="fee_invoices-tab">
                                         <div class="table-responsive mt-15">
-                                            <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                            <table style="text-align: center"
+                                                class="table center-aligned-table table-hover mb-0">
                                                 <thead>
-                                                <tr  class="table-info text-danger">
-                                                    <th>#</th>
-                                                    <th>{{trans('Fees.Invoice_date')}}</th>
-                                                    <th>{{trans('Students_trans.name')}}</th>
-                                                    <th>{{trans('Students_trans.Grade')}}</th>
-                                                    <th>{{trans('Students_trans.classrooms')}}</th>
-                                                    <th>{{trans('Fees.Fee_type')}}</th>
-                                                    <th>{{trans('Fees.the_amount')}}</th>
-                                                    <th>{{trans('Attendance.Date')}}</th>
-                                                </tr>
+                                                    <tr class="table-info text-danger">
+                                                        <th>#</th>
+                                                        <th>{{trans('Fees.Invoice_date')}}</th>
+                                                        <th>{{trans('Students_trans.name')}}</th>
+                                                        <th>{{trans('Students_trans.Grade')}}</th>
+                                                        <th>{{trans('Students_trans.classrooms')}}</th>
+                                                        <th>{{trans('Fees.Fee_type')}}</th>
+                                                        <th>{{trans('Fees.the_amount')}}</th>
+                                                        <th>{{trans('Attendance.Date')}}</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse(\App\Models\Fee_invoice::latest()->take(10)->get() as $section)
+                                                    @forelse(\App\Models\Fee_invoice::latest()->take(10)->get() as
+                                                    $section)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$section->invoice_date}}</td>
@@ -306,11 +332,12 @@
                                                         <td>{{$section->fees->amount}}</td>
                                                         <td class="text-success">{{$section->created_at}}</td>
                                                     </tr>
-                                                @empty
+                                                    @empty
                                                     <tr>
-                                                        <td class="alert-danger" colspan="9">{{trans('Students_trans.no_data')}}</td>
+                                                        <td class="alert-danger" colspan="9">
+                                                            {{trans('Students_trans.no_data')}}</td>
                                                     </tr>
-                                                @endforelse
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>

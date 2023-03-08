@@ -61,7 +61,7 @@
                                 <div class="form-row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="Grade_id">{{trans('Attendance.Test_name')}}: <span
+                                            <label for="grade_id">{{trans('Attendance.Test_name')}}: <span
                                                     class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="quizze_id">
                                                 <option selected disabled>{{trans('Questions.Select_test')}}...</option>
@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="Grade_id">{{trans('Attendance.Degree')}} : <span class="text-danger">*</span></label>
+                                            <label for="grade_id">{{trans('Attendance.Degree')}} : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="score">
                                                 <option selected disabled> {{trans('Questions.Select_degree')}}...</option>
                                                 <option value="5" {{$question->score == 5 ? 'selected':''}}>5</option>

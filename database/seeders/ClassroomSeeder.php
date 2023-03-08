@@ -8,8 +8,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
-class ClassroomSeeder extends Seeder
+class classroomseeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -30,7 +29,7 @@ class ClassroomSeeder extends Seeder
         foreach ($classrooms as $classroom) {
             Classroom::create([
                 'Name_class' => $classroom,
-                'Grade_id' => Grade::all()->unique()->random()->id
+                'grade_id' => Grade::all()->unique()->random()->id
             ]);
         }
     }

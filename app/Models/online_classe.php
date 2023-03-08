@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class online_classe extends Model
 {
     use HasFactory;
-    public $fillable = ['Grade_id', 'Classroom_id', 'section_id', 'user_id', 'meeting_id', 'topic', 'start_at', 'duration', 'password', 'start_url', 'join_url'];
+    public $fillable = ['grade_id', 'classroom_id', 'section_id', 'user_id', 'meeting_id', 'topic', 'start_at', 'duration', 'password', 'start_url', 'join_url'];
 
     public function grade()
     {
-        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+        return $this->belongsTo('App\Models\Grade', 'grade_id');
     }
 
 
     public function classroom()
     {
-        return $this->belongsTo('App\Models\Classroom', 'Classroom_id');
+        return $this->belongsTo('App\Models\Classroom', 'classroom_id');
     }
 
 

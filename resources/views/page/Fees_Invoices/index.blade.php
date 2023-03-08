@@ -4,25 +4,24 @@
 {{trans('Fees.study_fees')}}@stop
 @endsection
 @section('page-header')
-    <!-- breadcrumb -->
+<!-- breadcrumb -->
 @section('PageTitle')
 {{trans('Fees.study_fees')}}@stop
 <!-- breadcrumb -->
 @endsection
 @section('content')
-    <!-- row -->
-    <div class="row">
-        <div class="col-md-12 mb-30">
-            <div class="card card-statistics h-100">
-                <div class="card-body">
-                    <div class="col-xl-12 mb-30">
-                        <div class="card card-statistics h-100">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
-                                           data-page-length="50"
-                                           style="text-align: center">
-                                        <thead>
+<!-- row -->
+<div class="row">
+    <div class="col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <div class="col-xl-12 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                    data-page-length="50" style="text-align: center">
+                                    <thead>
                                         <tr class="alert-success">
                                             <th>#</th>
                                             <th>{{trans('Fees.name')}}</th>
@@ -31,12 +30,12 @@
                                             <th>{{trans('Students_trans.Grade')}}</th>
                                             <th>{{trans('Students_trans.classrooms')}}</th>
                                             <th>{{trans('Fees.Statement')}}</th>
-                                            <th>{{trans('Grades_trans.Processes')}}</th>
+                                            <th>{{trans('grades_trans.Processes')}}</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
+                                    </thead>
+                                    <tbody>
                                         @foreach($Fee_invoices as $Fee_invoice)
-                                            <tr>
+                                        <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{$Fee_invoice->student->name}}</td>
                                             <td>{{$Fee_invoice->fees->title}}</td>
@@ -44,16 +43,19 @@
                                             <td>{{$Fee_invoice->grade->Name}}</td>
                                             <td>{{$Fee_invoice->classroom->Name_class}}</td>
                                             <td>{{$Fee_invoice->description}}</td>
-                                                <td>
-                                                    <a href="{{route('Fees_Invoices.edit',$Fee_invoice->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Fee_invoice{{$Fee_invoice->id}}" ><i class="fa fa-trash"></i></button>
-                                                </td>
-                                            </tr>
-                                            @include('page.Fees_Invoices.Delete')
+                                            <td>
+                                                <a href="{{route('Fees_Invoices.edit',$Fee_invoice->id)}}"
+                                                    class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#Delete_Fee_invoice{{$Fee_invoice->id}}"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        @include('page.Fees_Invoices.Delete')
 
                                         @endforeach
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -61,7 +63,8 @@
             </div>
         </div>
     </div>
-    <!-- row closed -->
+</div>
+<!-- row closed -->
 @endsection
 @section('js')
 @endsection

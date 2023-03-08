@@ -9,7 +9,6 @@ use App\Models\Teacher;
 
 class QuizzRepository implements QuizzRepositoryInterface
 {
-
     public function index()
     {
         $quizzes = Quizze::get();
@@ -27,12 +26,11 @@ class QuizzRepository implements QuizzRepositoryInterface
     public function store($request)
     {
         try {
-
             $quizzes = new Quizze();
             $quizzes->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $quizzes->subject_id = $request->subject_id;
-            $quizzes->grade_id = $request->Grade_id;
-            $quizzes->classroom_id = $request->Classroom_id;
+            $quizzes->grade_id = $request->grade_id;
+            $quizzes->classroom_id = $request->classroom_id;
             $quizzes->section_id = $request->section_id;
             $quizzes->teacher_id = $request->teacher_id;
             $quizzes->save();
@@ -58,8 +56,8 @@ class QuizzRepository implements QuizzRepositoryInterface
             $quizz = Quizze::findorFail($request->id);
             $quizz->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $quizz->subject_id = $request->subject_id;
-            $quizz->grade_id = $request->Grade_id;
-            $quizz->classroom_id = $request->Classroom_id;
+            $quizz->grade_id = $request->grade_id;
+            $quizz->classroom_id = $request->classroom_id;
             $quizz->section_id = $request->section_id;
             $quizz->teacher_id = $request->teacher_id;
             $quizz->save();

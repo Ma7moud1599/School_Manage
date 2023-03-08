@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Grades;
+namespace App\Http\Controllers\grades;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRequest;
@@ -17,9 +17,9 @@ class GradeController extends Controller
      */
     public function index()
     {
-        $Grades = Grade::all();
+        $grades = Grade::all();
 
-        return view('page.Grades.Grades', compact('Grades'));
+        return view('page.grades.grades', compact('grades'));
     }
 
     /**
@@ -40,7 +40,7 @@ class GradeController extends Controller
     {
         // if (Grade::where('Name->ar', $request->Name)->orwhere('Name->en', $request->Name_en)->exists()) {
 
-        //     return redirect()->back()->withErrors(trans('Grades_trans.exists'));
+        //     return redirect()->back()->withErrors(trans('grades_trans.exists'));
         // }
 
         try {
@@ -56,7 +56,7 @@ class GradeController extends Controller
 
             flash()->addSuccess(trans('message.success'));
 
-            return redirect()->route('Grades.index');
+            return redirect()->route('grades.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -92,14 +92,14 @@ class GradeController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Grades = Grade::findOrFail($request->id);
-            $Grades->update([
-                $Grades->Name = ['ar' => $request->Name, 'en' => $request->Name_en],
-                $Grades->Nots = $request->Nots,
+            $grades = Grade::findOrFail($request->id);
+            $grades->update([
+                $grades->Name = ['ar' => $request->Name, 'en' => $request->Name_en],
+                $grades->Nots = $request->Nots,
             ]);
             flash()->addSuccess(trans('message.Update'));
 
-            return redirect()->route('Grades.index');
+            return redirect()->route('grades.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -113,17 +113,17 @@ class GradeController extends Controller
      */
     public function destroy(Request $request)
     {
-        $MyClass_id = Classroom::where('Grade_id', $request->id)->pluck('Grade_id');
+        $Myclass_id = Classroom::where('grade_id', $request->id)->pluck('grade_id');
 
-        if ($MyClass_id->count() == 0) {
-            $Grades = Grade::findOrFail($request->id)->delete();
+        if ($Myclass_id->count() == 0) {
+            $grades = Grade::findOrFail($request->id)->delete();
             flash()->addError(trans('message.Delete'));
 
-            return redirect()->route('Grades.index');
+            return redirect()->route('grades.index');
         } else {
-            flash()->addError(trans('Grades_trans.delete_Grade_Error'));
+            flash()->addError(trans('grades_trans.delete_Grade_Error'));
 
-            return redirect()->route('Grades.index');
+            return redirect()->route('grades.index');
         }
     }
 }

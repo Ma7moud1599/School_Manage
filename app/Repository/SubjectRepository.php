@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Repository;
-
 
 use App\Models\Grade;
 use App\Models\Subject;
@@ -10,7 +8,6 @@ use App\Models\Teacher;
 
 class SubjectRepository implements SubjectRepositoryInterface
 {
-
     public function index()
     {
         $subjects = Subject::get();
@@ -30,8 +27,8 @@ class SubjectRepository implements SubjectRepositoryInterface
         try {
             $subjects = new Subject();
             $subjects->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $subjects->grade_id = $request->Grade_id;
-            $subjects->classroom_id = $request->Class_id;
+            $subjects->grade_id = $request->grade_id;
+            $subjects->classroom_id = $request->class_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
             flash()->addSuccess(trans('message.success'));
@@ -44,7 +41,6 @@ class SubjectRepository implements SubjectRepositoryInterface
 
     public function edit($id)
     {
-
         $subject = Subject::findorfail($id);
         $grades = Grade::get();
         $teachers = Teacher::get();
@@ -56,8 +52,8 @@ class SubjectRepository implements SubjectRepositoryInterface
         try {
             $subjects =  Subject::findorfail($request->id);
             $subjects->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $subjects->grade_id = $request->Grade_id;
-            $subjects->classroom_id = $request->Class_id;
+            $subjects->grade_id = $request->grade_id;
+            $subjects->classroom_id = $request->class_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
             flash()->addSuccess(trans('message.Update'));

@@ -13,7 +13,7 @@
         <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">{{trans('main_trans.Programname')}} </li>
 
         <!-- الطلاب-->
-          <li>
+        <li>
             <a href="{{route('sections')}}"><i class="fas fa-chalkboard"></i><span
                     class="right-nav-text">{{trans('main_trans.sections')}}</span></a>
         </li>
@@ -37,7 +37,7 @@
             </ul>
 
         </li>
-            <!-- الامتحانات-->
+        <!-- الامتحانات-->
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#exam-menu">
                 <div class="pull-left"><i class="fas fa-chalkboard"></i><span
@@ -52,8 +52,8 @@
 
         <!-- الملف الشخصي-->
         <li>
-            <a href="{{route('profile.show')}}"><i class="fas fa-id-card-alt"></i><span
-                    class="right-nav-text"> {{trans('Perant_trans.Profile_personly')}}</span></a>
+            <a href="{{route('profile.show')}}"><i class="fas fa-id-card-alt"></i><span class="right-nav-text">
+                    {{trans('Perant_trans.Profile_personly')}}</span></a>
         </li>
 
     </ul>

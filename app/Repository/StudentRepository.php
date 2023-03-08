@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-
 class StudentRepository implements StudentRepositoryInterface
 {
-
     public function Get_Student()
     {
         $students = Student::all();
@@ -28,7 +26,7 @@ class StudentRepository implements StudentRepositoryInterface
 
     public function Edit_Student($id)
     {
-        $data['Grades'] = Grade::all();
+        $data['grades'] = Grade::all();
         $data['parents'] = My_Parent::all();
         $data['Genders'] = Gender::all();
         $data['nationals'] = Nationality::all();
@@ -48,8 +46,8 @@ class StudentRepository implements StudentRepositoryInterface
             $Edit_Students->nationalitie_id = $request->nationalitie_id;
             $Edit_Students->blood_id = $request->blood_id;
             $Edit_Students->Date_Birth = $request->Date_Birth;
-            $Edit_Students->Grade_id = $request->Grade_id;
-            $Edit_Students->Classroom_id = $request->Classroom_id;
+            $Edit_Students->grade_id = $request->grade_id;
+            $Edit_Students->classroom_id = $request->classroom_id;
             $Edit_Students->section_id = $request->section_id;
             $Edit_Students->parent_id = $request->parent_id;
             $Edit_Students->academic_year = $request->academic_year;
@@ -92,8 +90,8 @@ class StudentRepository implements StudentRepositoryInterface
             $students->nationalitie_id = $request->nationalitie_id;
             $students->blood_id = $request->blood_id;
             $students->Date_Birth = $request->Date_Birth;
-            $students->Grade_id = $request->Grade_id;
-            $students->Classroom_id = $request->Classroom_id;
+            $students->grade_id = $request->grade_id;
+            $students->classroom_id = $request->classroom_id;
             $students->section_id = $request->section_id;
             $students->parent_id = $request->parent_id;
             $students->academic_year = $request->academic_year;

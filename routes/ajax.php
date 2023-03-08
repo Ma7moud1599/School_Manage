@@ -21,6 +21,6 @@ Route::group([
     'middleware' => 'auth:teacher,web',
     'namespace' => 'App\Http\Controllers'
 ], function () {
-    Route::get('/Get_classrooms/{id}', 'AjaxController@getClassrooms');
-    Route::get('/Get_Sections/{id}', 'AjaxController@Get_Sections');
+    Route::get('/Get_classrooms/{id}', 'AjaxController@getclassrooms');
+    Route::get('/Get_sections/{id}', 'AjaxController@Get_sections');
 });

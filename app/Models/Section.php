@@ -13,18 +13,18 @@ class Section extends Model
 
     protected $table = 'sections';
 
-    protected $fillable = ['Name_section', 'Grade_id', 'Class_id'];
+    protected $fillable = ['Name_section', 'grade_id', 'class_id'];
 
     public $timestamps = true;
 
     public function section_grade()
     {
-        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+        return $this->belongsTo('App\Models\Grade', 'grade_id');
     }
 
     public function section_class()
     {
-        return $this->belongsTo('App\Models\Classroom', 'Class_id');
+        return $this->belongsTo('App\Models\Classroom', 'class_id');
     }
 
     // علاقة الاقسام مع المعلمين
@@ -33,8 +33,8 @@ class Section extends Model
         return $this->belongsToMany('App\Models\Teacher', 'teacher_section');
     }
 
-    public function Grades()
+    public function grades()
     {
-        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+        return $this->belongsTo('App\Models\Grade', 'grade_id');
     }
 }

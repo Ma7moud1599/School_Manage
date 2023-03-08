@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Repository;
-
 
 use App\Models\Fee;
 use App\Models\Fee_invoice;
@@ -13,25 +11,24 @@ use Illuminate\Support\Facades\DB;
 
 class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
 {
-
     public function index()
     {
         $Fee_invoices = Fee_invoice::all();
-        $Grades = Grade::all();
-        return view('page.Fees_Invoices.index', compact('Fee_invoices', 'Grades'));
+        $grades = Grade::all();
+        return view('page.Fees_Invoices.index', compact('Fee_invoices', 'grades'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        $fees = Fee::where('Classroom_id', $student->Classroom_id)->get();
+        $fees = Fee::where('classroom_id', $student->classroom_id)->get();
         return view('page.Fees_Invoices.add', compact('student', 'fees'));
     }
 
     public function edit($id)
     {
         $fee_invoices = Fee_invoice::findorfail($id);
-        $fees = Fee::where('Classroom_id', $fee_invoices->Classroom_id)->get();
+        $fees = Fee::where('classroom_id', $fee_invoices->classroom_id)->get();
         return view('page.Fees_Invoices.edit', compact('fee_invoices', 'fees'));
     }
 
@@ -42,14 +39,14 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
         DB::beginTransaction();
 
         try {
-
             foreach ($List_Fees as $List_Fee) {
                 // حفظ البيانات في جدول فواتير الرسوم الدراسية
                 $Fees = new Fee_invoice();
                 $Fees->invoice_date = date('Y-m-d');
                 $Fees->student_id = $List_Fee['student_id'];
-                $Fees->Grade_id = $request->Grade_id;
-                $Fees->Classroom_id = $request->Classroom_id;;
+                $Fees->grade_id = $request->grade_id;
+                $Fees->classroom_id = $request->classroom_id;
+                ;
                 $Fees->fee_id = $List_Fee['fee_id'];
                 $Fees->amount = $List_Fee['amount'];
                 $Fees->description = $List_Fee['description'];

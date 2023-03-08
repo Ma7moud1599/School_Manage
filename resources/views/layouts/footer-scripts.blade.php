@@ -58,19 +58,19 @@
 </script>
 
 <script>
-        $(document).ready(function () {
-            $('select[name="Grade_id"]').on('change', function () {
-                var Grade_id = $(this).val();
-                if (Grade_id) {
+    $(document).ready(function () {
+            $('select[name="grade_id"]').on('change', function () {
+                var grade_id = $(this).val();
+                if (grade_id) {
                     $.ajax({
-                        url: "{{ URL::to('Get_classrooms') }}/" + Grade_id,
+                        url: "{{ URL::to('Get_classrooms') }}/" + grade_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
-                            $('select[name="Classroom_id"]').empty();
-                            $('select[name="Classroom_id"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
+                            $('select[name="classroom_id"]').empty();
+                            $('select[name="classroom_id"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
                             $.each(data, function (key, value) {
-                                $('select[name="Classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
+                                $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
                             });
                         },
                     });
@@ -82,13 +82,13 @@
         });
 </script>
 
-    <script>
-        $(document).ready(function () {
-            $('select[name="Classroom_id"]').on('change', function () {
-                var Classroom_id = $(this).val();
-                if (Classroom_id) {
+<script>
+    $(document).ready(function () {
+            $('select[name="classroom_id"]').on('change', function () {
+                var classroom_id = $(this).val();
+                if (classroom_id) {
                     $.ajax({
-                        url: "{{ URL::to('Get_Sections') }}/" + Classroom_id,
+                        url: "{{ URL::to('Get_sections') }}/" + classroom_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
@@ -104,21 +104,21 @@
                 }
             });
         });
-    </script>
+</script>
 <script>
     $(document).ready(function () {
-        $('select[name="Grade_id_new"]').on('change', function () {
-            var Grade_id = $(this).val();
-            if (Grade_id) {
+        $('select[name="grade_id_new"]').on('change', function () {
+            var grade_id = $(this).val();
+            if (grade_id) {
                 $.ajax({
-                    url: "{{ URL::to('Get_classrooms') }}/" + Grade_id,
+                    url: "{{ URL::to('Get_classrooms') }}/" + grade_id,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
-                        $('select[name="Classroom_id_new"]').empty();
-                        $('select[name="Classroom_id_new"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
+                        $('select[name="classroom_id_new"]').empty();
+                        $('select[name="classroom_id_new"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
                         $.each(data, function (key, value) {
-                            $('select[name="Classroom_id_new"]').append('<option value="' + key + '">' + value + '</option>');
+                            $('select[name="classroom_id_new"]').append('<option value="' + key + '">' + value + '</option>');
                         });
                     },
                 });
@@ -133,11 +133,11 @@
 
 <script>
     $(document).ready(function () {
-        $('select[name="Classroom_id_new"]').on('change', function () {
-            var Classroom_id = $(this).val();
-            if (Classroom_id) {
+        $('select[name="classroom_id_new"]').on('change', function () {
+            var classroom_id = $(this).val();
+            if (classroom_id) {
                 $.ajax({
-                    url: "{{ URL::to('Get_Sections') }}/" + Classroom_id,
+                    url: "{{ URL::to('Get_sections') }}/" + classroom_id,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {

@@ -8,7 +8,6 @@ use App\Models\Library;
 
 class LibraryRepository implements LibraryRepositoryInterface
 {
-
     use AttachFilesTrait;
 
     public function index()
@@ -29,8 +28,8 @@ class LibraryRepository implements LibraryRepositoryInterface
             $books = new Library();
             $books->title = $request->title;
             $books->file_name =  $request->file('file_name')->getClientOriginalName();
-            $books->Grade_id = $request->Grade_id;
-            $books->classroom_id = $request->Classroom_id;
+            $books->grade_id = $request->grade_id;
+            $books->classroom_id = $request->classroom_id;
             $books->section_id = $request->section_id;
             $books->teacher_id = 1;
             $books->save();
@@ -53,12 +52,10 @@ class LibraryRepository implements LibraryRepositoryInterface
     public function update($request)
     {
         try {
-
             $book = library::findorFail($request->id);
             $book->title = $request->title;
 
             if ($request->hasfile('file_name')) {
-
                 $this->deleteFile($book->file_name);
 
                 $this->uploadFile($request, 'file_name', 'Library');
@@ -67,8 +64,8 @@ class LibraryRepository implements LibraryRepositoryInterface
                 $book->file_name = $book->file_name !== $file_name_new ? $file_name_new : $book->file_name;
             }
 
-            $book->Grade_id = $request->Grade_id;
-            $book->classroom_id = $request->Classroom_id;
+            $book->grade_id = $request->grade_id;
+            $book->classroom_id = $request->classroom_id;
             $book->section_id = $request->section_id;
             $book->teacher_id = 1;
             $book->save();

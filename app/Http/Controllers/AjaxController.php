@@ -8,16 +8,15 @@ use Illuminate\Http\Request;
 
 class AjaxController extends Controller
 {
-    // Get Classrooms
-    public function getClassrooms($id)
+    // Get classrooms
+    public function getclassrooms($id)
     {
-        return Classroom::where("Grade_id", $id)->pluck("Name_class", "id");
+        return Classroom::where("grade_id", $id)->pluck("Name_class", "id");
     }
 
-    //Get Sections
-    public function Get_Sections($id)
+    //Get sections
+    public function Get_sections($id)
     {
-
-        return Section::where("Class_id", $id)->pluck("Name_section", "id");
+        return Section::where("class_id", $id)->pluck("Name_section", "id");
     }
 }

@@ -8,9 +8,6 @@ use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
-
-
 class Student extends Authenticatable
 {
     use SoftDeletes;
@@ -30,7 +27,7 @@ class Student extends Authenticatable
 
     public function grade()
     {
-        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+        return $this->belongsTo('App\Models\Grade', 'grade_id');
     }
 
 
@@ -38,7 +35,7 @@ class Student extends Authenticatable
 
     public function classroom()
     {
-        return $this->belongsTo('App\Models\Classroom', 'Classroom_id');
+        return $this->belongsTo('App\Models\Classroom', 'classroom_id');
     }
 
     // علاقة بين الطلاب الاقسام الدراسية لجلب اسم القسم  في جدول الطلاب

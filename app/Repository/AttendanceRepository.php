@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Repository;
-
 
 use App\Models\Attendance;
 use App\Models\Grade;
@@ -11,13 +9,12 @@ use App\Models\Teacher;
 
 class AttendanceRepository implements AttendanceRepositoryInterface
 {
-
     public function index()
     {
-        $Grades = Grade::with(['Sections'])->get();
-        $list_Grades = Grade::all();
+        $grades = Grade::with(['sections'])->get();
+        $list_grades = Grade::all();
         $teachers = Teacher::all();
-        return view('page.Attendance.Sections', compact('Grades', 'list_Grades', 'teachers'));
+        return view('page.Attendance.sections', compact('grades', 'list_grades', 'teachers'));
     }
 
     public function show($id)
@@ -29,12 +26,10 @@ class AttendanceRepository implements AttendanceRepositoryInterface
     public function store($request)
     {
         try {
-
             foreach ($request->attendences as $studentid => $attendence) {
-
                 if ($attendence == 'presence') {
                     $attendence_status = true;
-                } else if ($attendence == 'absent') {
+                } elseif ($attendence == 'absent') {
                     $attendence_status = false;
                 }
 

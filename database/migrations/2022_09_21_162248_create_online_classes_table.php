@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -15,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('online_classes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('Grade_id')->unsigned();
-            $table->bigInteger('Classroom_id')->unsigned();
+            $table->bigInteger('grade_id')->unsigned();
+            $table->bigInteger('classroom_id')->unsigned();
             $table->bigInteger('section_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->string('meeting_id');

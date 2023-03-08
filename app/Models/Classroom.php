@@ -13,12 +13,12 @@ class Classroom extends Model
 
     protected $table = 'classrooms';
 
-    protected $fillable = ['Name_class', 'Grade_id'];
+    protected $fillable = ['Name_class', 'grade_id'];
 
     public $timestamps = true;
 
-    public function Grades()
+    public function grades()
     {
-        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+        return $this->belongsTo('App\Models\Grade', 'grade_id');
     }
 }

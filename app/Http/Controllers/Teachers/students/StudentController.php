@@ -33,13 +33,11 @@ class StudentController extends Controller
     public function attendance(Request $request)
     {
         try {
-
             $attenddate = date('Y-m-d');
             foreach ($request->attendences as $studentid => $attendence) {
-
                 if ($attendence == 'presence') {
                     $attendence_status = true;
-                } else if ($attendence == 'absent') {
+                } elseif ($attendence == 'absent') {
                     $attendence_status = false;
                 }
 
@@ -69,7 +67,6 @@ class StudentController extends Controller
 
     public function attendanceReport()
     {
-
         $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
         $students = Student::whereIn('section_id', $ids)->get();
         return view('page.Teachers.students.attendance_report', compact('students'));
@@ -77,7 +74,6 @@ class StudentController extends Controller
 
     public function attendanceSearch(Request $request)
     {
-
         $request->validate([
             'from'  => 'required',
             'to' => 'required|after_or_equal:from'
@@ -92,11 +88,9 @@ class StudentController extends Controller
         $students = Student::whereIn('section_id', $ids)->get();
 
         if ($request->student_id == 0) {
-
             $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])->get();
             return view('page.Teachers.students.attendance_report', compact('Students', 'students'));
         } else {
-
             $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])
                 ->where('student_id', $request->student_id)->get();
             return view('page.Teachers.students.attendance_report', compact('Students', 'students'));

@@ -27,8 +27,8 @@ class FeesRequest extends FormRequest
             'title_ar' => 'required',
             'title_en' => 'required',
             'amount' => 'required|numeric',
-            'Grade_id' => 'required|integer',
-            'Classroom_id' => 'required|integer',
+            'grade_id' => 'required|integer',
+            'classroom_id' => 'required|integer',
             'year' => 'required',
         ];
     }
@@ -41,8 +41,8 @@ class FeesRequest extends FormRequest
             'Password.required' => trans('validation.required'),
             'amount.required' => trans('validation.required'),
             'amount.numeric' => trans('validation.numeric'),
-            'Grade_id.required' => trans('validation.required'),
-            'Classroom_id.required' => trans('validation.required'),
+            'grade_id.required' => trans('validation.required'),
+            'classroom_id.required' => trans('validation.required'),
             'year.required' => trans('validation.required'),
         ];
     }

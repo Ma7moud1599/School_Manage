@@ -7,8 +7,7 @@ use App\Models\Grade;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
-class GradeSeeder extends Seeder
+class gradeseeder extends Seeder
 {
     /**
      * Run the database seeds.

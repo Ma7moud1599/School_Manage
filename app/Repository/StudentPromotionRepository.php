@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Repository;
-
 
 use App\Models\Grade;
 use App\Models\Promotion;
@@ -14,8 +12,8 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 {
     public function index()
     {
-        $Grades = Grade::all();
-        return view('page.Students.promotion.index', compact('Grades'));
+        $grades = Grade::all();
+        return view('page.Students.promotion.index', compact('grades'));
     }
 
     public function create()
@@ -30,8 +28,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
         DB::beginTransaction();
 
         try {
-
-            $students = Student::where('Grade_id', $request->Grade_id)->where('Classroom_id',   $request->Classroom_id)->where('section_id', $request->section_id)->where('academic_year', $request->academic_year)->get();
+            $students = Student::where('grade_id', $request->grade_id)->where('classroom_id', $request->classroom_id)->where('section_id', $request->section_id)->where('academic_year', $request->academic_year)->get();
 
             if ($students->count() < 1) {
                 return redirect()->back()->with('error_promotions', __(trans('message.error_Graduated')));
@@ -39,12 +36,11 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 
             // update in table student
             foreach ($students as $student) {
-
                 $ids = explode(',', $student->id);
                 student::whereIn('id', $ids)
                     ->update([
-                        'Grade_id' => $request->Grade_id_new,
-                        'Classroom_id' => $request->Classroom_id_new,
+                        'grade_id' => $request->grade_id_new,
+                        'classroom_id' => $request->classroom_id_new,
                         'section_id' => $request->section_id_new,
                         'academic_year' => $request->academic_year_new,
                     ]);
@@ -52,11 +48,11 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 // insert in to promotions
                 Promotion::updateOrCreate([
                     'student_id' => $student->id,
-                    'from_grade' => $request->Grade_id,
-                    'from_Classroom' => $request->Classroom_id,
+                    'from_grade' => $request->grade_id,
+                    'from_Classroom' => $request->classroom_id,
                     'from_section' => $request->section_id,
-                    'to_grade' => $request->Grade_id_new,
-                    'to_Classroom' => $request->Classroom_id_new,
+                    'to_grade' => $request->grade_id_new,
+                    'to_Classroom' => $request->classroom_id_new,
                     'to_section' => $request->section_id_new,
                     'academic_year' => $request->academic_year,
                     'academic_year_new' => $request->academic_year_new,
@@ -76,19 +72,16 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
         DB::beginTransaction();
 
         try {
-
             // التراجع عن الكل
             if ($request->page_id == 1) {
-
                 $Promotions = Promotion::all();
                 foreach ($Promotions as $Promotion) {
-
                     //التحديث في جدول الطلاب
                     $ids = explode(',', $Promotion->student_id);
                     student::whereIn('id', $ids)
                         ->update([
-                            'Grade_id' => $Promotion->from_grade,
-                            'Classroom_id' => $Promotion->from_Classroom,
+                            'grade_id' => $Promotion->from_grade,
+                            'classroom_id' => $Promotion->from_Classroom,
                             'section_id' => $Promotion->from_section,
                             'academic_year' => $Promotion->academic_year,
                         ]);
@@ -100,12 +93,11 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 flash()->addError(trans('message.Delete'));
                 return redirect()->back();
             } else {
-
                 $Promotion = Promotion::findorfail($request->id);
                 student::where('id', $Promotion->student_id)
                     ->update([
-                        'Grade_id' => $Promotion->from_grade,
-                        'Classroom_id' => $Promotion->from_Classroom,
+                        'grade_id' => $Promotion->from_grade,
+                        'classroom_id' => $Promotion->from_Classroom,
                         'section_id' => $Promotion->from_section,
                         'academic_year' => $Promotion->academic_year,
                     ]);

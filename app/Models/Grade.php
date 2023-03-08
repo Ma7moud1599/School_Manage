@@ -17,8 +17,8 @@ class Grade extends Model
 
     public $timestamps = true;
 
-    public function Sections()
+    public function sections()
     {
-        return $this->hasMany('App\Models\Section', 'Grade_id');
+        return $this->hasMany('App\Models\Section', 'grade_id');
     }
 }

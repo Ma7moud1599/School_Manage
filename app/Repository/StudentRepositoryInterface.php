@@ -21,8 +21,8 @@ interface StudentRepositoryInterface
     // Get classrooms
     // public function Get_classrooms($id);
 
-    // //Get Sections
-    // public function Get_Sections($id);
+    // //Get sections
+    // public function Get_sections($id);
 
     //Store_Student
     public function Store_Student($request);

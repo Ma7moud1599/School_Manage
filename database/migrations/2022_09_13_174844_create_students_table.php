@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -22,8 +21,8 @@ return new class extends Migration
             $table->bigInteger('nationalitie_id')->unsigned();
             $table->bigInteger('blood_id')->unsigned();
             $table->date('Date_Birth');
-            $table->bigInteger('Grade_id')->unsigned();
-            $table->bigInteger('Classroom_id')->unsigned();
+            $table->bigInteger('grade_id')->unsigned();
+            $table->bigInteger('classroom_id')->unsigned();
             $table->bigInteger('section_id')->unsigned();
             $table->bigInteger('parent_id')->unsigned();
             $table->string('academic_year');

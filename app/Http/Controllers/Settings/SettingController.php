@@ -13,7 +13,6 @@ class SettingController extends Controller
     use AttachFilesTrait;
     public function index()
     {
-
         $collection = Setting::all();
         $setting['setting'] = $collection->flatMap(function ($collection) {
             return [$collection->key => $collection->value];
@@ -23,7 +22,6 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
-
         try {
             $info = $request->except('_token', '_method', 'logo');
             foreach ($info as $key => $value) {
@@ -39,7 +37,6 @@ class SettingController extends Controller
             flash()->addSuccess(trans('message.Update'));
             return back();
         } catch (\Exception $e) {
-
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }

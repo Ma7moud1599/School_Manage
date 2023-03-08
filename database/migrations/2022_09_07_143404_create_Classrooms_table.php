@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClassroomsTable extends Migration
+class CreateclassroomsTable extends Migration
 {
     public function up()
     {
@@ -12,7 +12,7 @@ class CreateClassroomsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('Name_class');
-            $table->bigInteger('Grade_id')->unsigned();
+            $table->bigInteger('grade_id')->unsigned();
             $table->engine = 'InnoDB';
         });
     }

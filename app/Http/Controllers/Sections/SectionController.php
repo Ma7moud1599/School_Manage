@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Sections;
+namespace App\Http\Controllers\sections;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SectionRequest;
@@ -19,13 +19,13 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $Grades = Grade::with(['Sections'])->get();
+        $grades = Grade::with(['sections'])->get();
 
-        $list_Grades = Grade::all();
+        $list_grades = Grade::all();
 
         $teachers = Teacher::all();
 
-        return view('page.Sections.sections', compact('Grades', 'list_Grades', 'teachers'));
+        return view('page.sections.sections', compact('grades', 'list_grades', 'teachers'));
     }
 
     /**
@@ -46,18 +46,18 @@ class SectionController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Sections = new Section();
+            $sections = new Section();
 
-            $Sections->Name_section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
-            $Sections->Grade_id = $request->Grade_id;
-            $Sections->Class_id = $request->Class_id;
-            $Sections->Status = 1;
-            $Sections->save();
-            $Sections->teachers()->attach($request->teacher_id);
+            $sections->Name_section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+            $sections->grade_id = $request->grade_id;
+            $sections->class_id = $request->class_id;
+            $sections->Status = 1;
+            $sections->save();
+            $sections->teachers()->attach($request->teacher_id);
 
             flash()->addSuccess(trans('message.success'));
 
-            return redirect()->route('Sections.index');
+            return redirect()->route('sections.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -93,29 +93,29 @@ class SectionController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Sections = Section::findOrFail($request->id);
+            $sections = Section::findOrFail($request->id);
 
-            $Sections->Name_section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
-            $Sections->Grade_id = $request->Grade_id;
-            $Sections->Class_id = $request->Class_id;
+            $sections->Name_section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+            $sections->grade_id = $request->grade_id;
+            $sections->class_id = $request->class_id;
 
             if (isset($request->Status)) {
-                $Sections->Status = 1;
+                $sections->Status = 1;
             } else {
-                $Sections->Status = 2;
+                $sections->Status = 2;
             }
 
             // update pivot tABLE
             if (isset($request->teacher_id)) {
-                $Sections->teachers()->sync($request->teacher_id);
+                $sections->teachers()->sync($request->teacher_id);
             } else {
-                $Sections->teachers()->sync(array());
+                $sections->teachers()->sync(array());
             }
 
-            $Sections->save();
+            $sections->save();
             flash()->addSuccess(trans('message.Update'));
 
-            return redirect()->route('Sections.index');
+            return redirect()->route('sections.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -132,12 +132,12 @@ class SectionController extends Controller
         Section::findOrFail($request->id)->delete();
         flash()->addError(trans('message.Delete'));
 
-        return redirect()->route('Sections.index');
+        return redirect()->route('sections.index');
     }
 
     public function getclasses($id)
     {
-        $list_classes = Classroom::where('Grade_id', $id)->pluck('Name_class', 'id');
+        $list_classes = Classroom::where('grade_id', $id)->pluck('Name_class', 'id');
 
         return $list_classes;
     }

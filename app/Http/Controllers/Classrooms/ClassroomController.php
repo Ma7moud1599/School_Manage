@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Classrooms;
+namespace App\Http\Controllers\classrooms;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClassroomRequest;
@@ -17,10 +17,10 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        $Classrooms = Classroom::all();
-        $Grades = Grade::all();
+        $classrooms = Classroom::all();
+        $grades = Grade::all();
 
-        return view('page.Classrooms.Classrooms', compact('Classrooms', 'Grades'));
+        return view('page.classrooms.classrooms', compact('classrooms', 'grades'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ClassroomController extends Controller
 
                 $classes->Name_class = ['en' => $List_Classe['Name_class_en'], 'ar' => $List_Classe['Name']];
 
-                $classes->Grade_id = $List_Classe['Grade_id'];
+                $classes->grade_id = $List_Classe['grade_id'];
 
                 $classes->save();
             }
@@ -87,12 +87,12 @@ class ClassroomController extends Controller
     public function update(Request $request)
     {
         try {
-            $Classrooms = Classroom::findOrFail($request->id);
+            $classrooms = Classroom::findOrFail($request->id);
 
-            $Classrooms->update([
+            $classrooms->update([
 
-                $Classrooms->Name_class = ['ar' => $request->Name, 'en' => $request->Name_en],
-                $Classrooms->Grade_id = $request->Grade_id,
+                $classrooms->Name_class = ['ar' => $request->Name, 'en' => $request->Name_en],
+                $classrooms->grade_id = $request->grade_id,
             ]);
             flash()->addSuccess(trans('message.Update'));
 
@@ -130,9 +130,9 @@ class ClassroomController extends Controller
 
     public function Filter_Classes(Request $request)
     {
-        $Grades = Grade::all();
-        $details = Classroom::select('*')->where('Grade_id', '=', $request->Grade_id)->get();
+        $grades = Grade::all();
+        $details = Classroom::select('*')->where('grade_id', '=', $request->grade_id)->get();
 
-        return view('page.Classrooms.Classrooms', compact('Grades', $details));
+        return view('page.classrooms.classrooms', compact('grades', $details));
     }
 }

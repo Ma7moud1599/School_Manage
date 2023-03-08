@@ -21,6 +21,6 @@ return [
     'Processes' => 'Processes',
     'Edit' => 'Edit',
     'Delete' => 'Delete',
-    'delete_Class_Error' => 'The Class cannot be Deleted because it contains Sections',
+    'delete_Class_Error' => 'The Class cannot be Deleted because it contains sections',
     'Close' => 'Close',
 ];
